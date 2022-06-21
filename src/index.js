@@ -20,6 +20,17 @@ for (let pokemon of data) {
   cardImg.className = "card--img";
   cardImg.width = 256;
   cardImg.src = pokemon.sprites.other["official-artwork"].front_default;
+  cardImg.addEventListener("click", toggleImages);
+  cardImg.title = "Click to toggle images";
+  function toggleImages() {
+    if (
+      cardImg.src === pokemon.sprites.other["official-artwork"].front_default
+    ) {
+      cardImg.src = pokemon.sprites.other.dream_world.front_default;
+    } else {
+      cardImg.src = pokemon.sprites.other["official-artwork"].front_default;
+    }
+  }
 
   let cardText = document.createElement("ul");
   cardText.className = "card--text";
